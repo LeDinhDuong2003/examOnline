@@ -67,8 +67,6 @@ public class Client {
     public Client() {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
         clientName = promptForClientName(); // Prompt for the client name before starting
-        client.connect();
-        if(!connected) return;
         initializeUI();
         cameraHandler = new CameraHandler();
         cameraHandler.startCamera(cameraLabel, client); // Automatically start camera
@@ -151,7 +149,7 @@ public class Client {
         client.connect();
 
         // Start the countdown timer (e.g., for 1 hour = 3600 seconds)
-        startCountdownTimer(3600); // Adjust the countdown duration as needed
+        startCountdownTimer(10); // Adjust the countdown duration as needed
     }
 
     private String promptForClientName() {
